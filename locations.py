@@ -1,12 +1,12 @@
 #Inheritence Practice
 class Location:
 
-    def __init__(self,name,year,population):
+    def __init__(self,name: str,year: int,population: int):
         self.year = year
         self.name = name
         self.population = population
 
-    def get_population(self):
+    def get_population(self) -> int:
         return self.population
 
     def get_name(self):
@@ -37,6 +37,7 @@ class State(Location):
         #potentially change to dictionary
         self.cities = [] 
     
+
     #Decorator Example
     @classmethod
     def add_counties(cls,city):

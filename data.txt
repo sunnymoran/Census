@@ -1,3 +1,0 @@
-Empty DataFrame
-Columns: [Name, Geography Type, Year, Resident Population, Percent Change in Resident Population, Resident Population Density, Resident Population Density Rank, Number of Representatives, Change in Number of Representatives, Average Apportionment Population Per Representative]
-Index: []
