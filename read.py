@@ -2,17 +2,31 @@ import csv
 from hashlib import new
 import pandas as pd
 import xml.dom.minidom as minidom
+import wikipedia
 from locations import State , Location, City, County
-#Practice object oriented practices
+
+
 data = pd.read_csv("resources/censusdata19102020.csv")
 data2 = pd.read_csv("resources/censusdata2021.csv")
 #data 3 = practice reading from pdf file
+#Reading Excel Data
 data4 = pd.read_excel("resources/Idaho/Idaho2020-2021.xlsx", header = 3, na_values=['NA'], usecols=None)
-# print(data4)
+#Wikipedia searching
+result = wikipedia.search("Category:Cities in Idaho by county")
+
+page = wikipedia.page(result[2])
+categories = page.categories
+print(result)
+content = page.content
+
+
+
 idahoCounties = [County(x[0].split(",")[0].split(".")[1],2020,x[2]) for x in data4.values if x[0].find("County") != -1 ]
-print(idahoCounties)
-# county_names = [x for x in data4.column('Idaho')]
-# print(county_names)
+# print(idahoCounties)
+
+
+
+
 '''
 Column Names:
     Name
