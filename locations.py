@@ -34,14 +34,13 @@ class State(Location):
     def __init__(self,name,year,population):
         super().__init__(name,year,population)
         
-        #potentially change to dictionary
-        self.cities = [] 
-    
+
+        self.counties = []
 
     #Decorator Example
     @classmethod
-    def add_counties(cls,city):
-        cls.counties.append(city)
+    def add_counties(cls,counties):
+        cls.counties.append(counties)
 
     def __str__(self):
         return(f"State: {self.name} Year: {self.year} Population: {self.population} Counties: {State.counties} Cities: {self.cities}")
@@ -52,13 +51,21 @@ class County(Location):
         super().__init__(name, year, population)
         self.cities = []
     
+    def add_cities(self,cities):
+        self.counties.append(cities)
+
     def __str__(self):
-        return(f"State: {self.name} Year: {self.year} Population: {self.population} Cities: {self.cities}")
+        return(f"County: {self.name} Year: {self.year} Population: {self.population} Cities: {self.cities} + \n")
+
+    def __repr__(self):
+        return self.__str__()
 
 class City(Location):
     def __init__(self, name, year, population):
         super().__init__(name, year, population)
 
+    def __str__(self):
+        return(f"Citie: {self.name} Year: {self.year} Population: {self.population}")
 # state = State("Idaho",2022,198000)
 # print(state)
 # state.add_counties("Ada")
